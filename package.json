@@ -1,0 +1,36 @@
+{
+  "name": "@wildpeaks/preact-render-worker",
+  "version": "2.1.0",
+  "description": "Renders a Preact component in the DOM, using a Web Worker",
+  "main": "src/render.js",
+  "files": [
+    "src/render.js",
+    "test/render.tests.js"
+  ],
+  "scripts": {
+    "test": "mocha -r jsdom-global/register test/*.js"
+  },
+  "repository": "https://github.com/wildpeaks/package-preact-render-worker",
+  "keywords": [
+    "wildpeaks",
+    "preact",
+    "render"
+  ],
+  "author": "Cecile Muller",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wildpeaks/package-preact-render-worker/issues"
+  },
+  "homepage": "https://github.com/wildpeaks/package-preact-render-worker#readme",
+  "peerDependencies": {
+    "preact": "^7.1.0"
+  },
+  "devDependencies": {
+    "jsdom": "^9.8.3",
+    "jsdom-global": "^2.1.0",
+    "mocha": "^3.2.0",
+    "preact": "^7.1.0",
+    "sinon": "^1.17.6",
+    "@wildpeaks/snapshot-dom": "latest"
+  }
+}
