@@ -14,7 +14,7 @@ function required(){
  * @param  {String}       workerUrl      URL of the Web Worker
  * @param  {Object}       workerMessage  Initial message sent to the Web Worker
  */
-module.exports = function renderWorker(container = required(), Component = required(), workerUrl = required(), workerMessage = required()){
+module.exports = function renderWorker(container = required(), Component = required(), workerUrl = required(), workerMessage = required()){ // eslint-disable-line max-len
 	if (container.firstChild === null){
 		container.appendChild(document.createElement('div'));
 	}
