@@ -28,5 +28,10 @@ class MyComponent extends Component<MyProps, MyState> {
 
 let throws = false;
 const container = document.createElement('div');
-render<MyProps>(container, MyComponent, 'myworker.js', {href: 'example'});
+
+// This will render the computer in container everytime the Web Worker emits nes props.
+render<MyProps>(container, MyComponent, 'myworker.js');
+
+// Forwards a message to the Web Worker to trigger a change in the Web Worker.
+window.dispatch({action: 'example'});
 ````

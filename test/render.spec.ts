@@ -49,7 +49,7 @@ function test_detached_container(): void {
 
 	let throws = false;
 	try {
-		render(container, 'article', 'fake.worker.js', {hello: 123});
+		render(container, 'article', 'fake.worker.js');
 	} catch(e){
 		throws = e;
 	}
@@ -61,8 +61,7 @@ function test_detached_container(): void {
 		expect(worker.url).toBe('fake.worker.js');
 
 		const calls = worker.scope.postMessage.calls.all();
-		expect(calls.length).toEqual(1);
-		expect(calls[0].args).toEqual([{hello: 123}]);
+		expect(calls.length).toEqual(0);
 
 		expect(snapshot.toJSON(document.body))
 		.toEqual({
@@ -109,7 +108,7 @@ function test_multiple_messages(): void {
 
 	let throws = false;
 	try {
-		render(document.body, 'article', 'fake.worker.js', {hello: 123});
+		render(document.body, 'article', 'fake.worker.js');
 	} catch(e){
 		throws = e;
 	}
@@ -121,8 +120,7 @@ function test_multiple_messages(): void {
 		expect(worker.url).toBe('fake.worker.js');
 
 		const calls = worker.scope.postMessage.calls.all();
-		expect(calls.length).toEqual(1);
-		expect(calls[0].args).toEqual([{hello: 123}]);
+		expect(calls.length).toEqual(0);
 
 		expect(snapshot.toJSON(document.body))
 		.toEqual({
@@ -194,7 +192,7 @@ function test_replace_contents(): void {
 
 	let throws = false;
 	try {
-		render(document.body, 'article', 'fake.worker.js', {hello: 123});
+		render(document.body, 'article', 'fake.worker.js');
 	} catch(e){
 		throws = e;
 	}
@@ -206,8 +204,7 @@ function test_replace_contents(): void {
 		expect(worker.url).toBe('fake.worker.js');
 
 		const calls = worker.scope.postMessage.calls.all();
-		expect(calls.length).toEqual(1);
-		expect(calls[0].args).toEqual([{hello: 123}]);
+		expect(calls.length).toEqual(0);
 
 		expect(snapshot.toJSON(document.body))
 		.toEqual({
@@ -269,7 +266,7 @@ function test_stateless_component(): void {
 
 	let throws = false;
 	try {
-		render<StatelessProps>(document.body, Stateless, 'fake.worker.js', {href: 'initial'});
+		render<StatelessProps>(document.body, Stateless, 'fake.worker.js');
 	} catch(e){
 		throws = e;
 	}
@@ -281,8 +278,7 @@ function test_stateless_component(): void {
 		expect(worker.url).toBe('fake.worker.js');
 
 		const calls = worker.scope.postMessage.calls.all();
-		expect(calls.length).toEqual(1);
-		expect(calls[0].args).toEqual([{href: 'initial'}]);
+		expect(calls.length).toEqual(0);
 
 		expect(snapshot.toJSON(document.body))
 		.toEqual({
@@ -351,7 +347,7 @@ function test_stateful_component(): void {
 
 	let throws = false;
 	try {
-		render<StatefulProps>(document.body, Stateful, 'fake.worker.js', {href: 'initial'});
+		render<StatefulProps>(document.body, Stateful, 'fake.worker.js');
 	} catch(e){
 		throws = e;
 	}
@@ -363,8 +359,7 @@ function test_stateful_component(): void {
 		expect(worker.url).toBe('fake.worker.js');
 
 		const calls = worker.scope.postMessage.calls.all();
-		expect(calls.length).toEqual(1);
-		expect(calls[0].args).toEqual([{href: 'initial'}]);
+		expect(calls.length).toEqual(0);
 
 		expect(snapshot.toJSON(document.body))
 		.toEqual({
