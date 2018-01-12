@@ -4,9 +4,10 @@ import {h, render as preactRender} from 'preact';
 
 declare global {
 	interface Window {
-		dispatch: any;
+		dispatch?: (message: any) => void;
 	}
 }
+
 
 /**
  * Renders a Preact component in the DOM, and listens to a Web Worker for the props.

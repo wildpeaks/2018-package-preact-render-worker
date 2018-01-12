@@ -47,6 +47,7 @@ function test_detached_container(): void {
 	});
 	expect(global.workers.length).toBe(0);
 
+	expect(typeof window.dispatch).toBe('undefined');
 	let throws = false;
 	try {
 		render(container, 'article', 'fake.worker.js');
@@ -54,6 +55,7 @@ function test_detached_container(): void {
 		throws = e;
 	}
 	expect(throws).toBe(false);
+	expect(typeof window.dispatch).toBe('function');
 
 	expect(global.workers.length).toBe(1);
 	if (global.workers.length > 0){
@@ -106,6 +108,7 @@ function test_multiple_messages(): void {
 	});
 	expect(global.workers.length).toBe(0);
 
+	expect(typeof window.dispatch).toBe('undefined');
 	let throws = false;
 	try {
 		render(document.body, 'article', 'fake.worker.js');
@@ -113,6 +116,7 @@ function test_multiple_messages(): void {
 		throws = e;
 	}
 	expect(throws).toBe(false);
+	expect(typeof window.dispatch).toBe('function');
 
 	expect(global.workers.length).toBe(1);
 	if (global.workers.length > 0){
@@ -190,6 +194,7 @@ function test_replace_contents(): void {
 	});
 	expect(global.workers.length).toBe(0);
 
+	expect(typeof window.dispatch).toBe('undefined');
 	let throws = false;
 	try {
 		render(document.body, 'article', 'fake.worker.js');
@@ -197,6 +202,7 @@ function test_replace_contents(): void {
 		throws = e;
 	}
 	expect(throws).toBe(false);
+	expect(typeof window.dispatch).toBe('function');
 
 	expect(global.workers.length).toBe(1);
 	if (global.workers.length > 0){
@@ -264,6 +270,7 @@ function test_stateless_component(): void {
 	}
 	const Stateless: preact.FunctionalComponent<StatelessProps> = (props: StatelessProps) => h('a', props);
 
+	expect(typeof window.dispatch).toBe('undefined');
 	let throws = false;
 	try {
 		render<StatelessProps>(document.body, Stateless, 'fake.worker.js');
@@ -271,6 +278,7 @@ function test_stateless_component(): void {
 		throws = e;
 	}
 	expect(throws).toBe(false);
+	expect(typeof window.dispatch).toBe('function');
 
 	expect(global.workers.length).toBe(1);
 	if (global.workers.length > 0){
@@ -345,6 +353,7 @@ function test_stateful_component(): void {
 		}
 	}
 
+	expect(typeof window.dispatch).toBe('undefined');
 	let throws = false;
 	try {
 		render<StatefulProps>(document.body, Stateful, 'fake.worker.js');
@@ -352,6 +361,7 @@ function test_stateful_component(): void {
 		throws = e;
 	}
 	expect(throws).toBe(false);
+	expect(typeof window.dispatch).toBe('function');
 
 	expect(global.workers.length).toBe(1);
 	if (global.workers.length > 0){
@@ -407,6 +417,7 @@ describe('render', () => {
 		global.Worker = FakeWorker;
 	});
 	afterEach(() => {
+		delete window.dispatch;
 		delete global.window;
 		delete global.document;
 		delete global.workers;
