@@ -1,6 +1,6 @@
 # Render to DOM, using a Web Worker
 
-[![Build Status](https://travis-ci.org/wildpeaks/package-preact-render-worker.svg?branch=master)](https://travis-ci.org/wildpeaks/package-preact-render-worker)
+[![Build Status](https://travis-ci.org/wildpeaks/package-preact-render-worker.svg?branch=master)](https://travis-ci.org/wildpeaks/package-preact-render-worker) [![Greenkeeper badge](https://badges.greenkeeper.io/wildpeaks/package-preact-render-worker.svg)](https://greenkeeper.io/)
 
 **Renders a Preact component** in the DOM,
 and **listens to a Web Worker** for the props (similar to `@wildpeaks/react-render-worker`).
